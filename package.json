@@ -44,13 +44,14 @@
   ],
   "license": "Unlicense",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "name": "ctx4node",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bleshik/ctx4node.git"
   },
   "scripts": {
-    "build": "npm run clean && tsc && npm run uglify",
+    "build": "npm run clean && tsc --declaration && npm run uglify",
     "clean": "rimraf dist",
     "deploy": "npm version patch && npm publish",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
@@ -59,7 +60,7 @@
     "pretest": "cross-env NODE_ENV=test npm build && npm run lint",
     "start": "tsc -w",
     "test": "jest",
-    "tsc": "tsc",
+    "tsc": "tsc --declaration",
     "uglify": "./node_modules/uglify-es/bin/uglifyjs build/index.js --keep-fnames --ecma 6 -o build/index.js"
   },
   "version": "1.0.1"
