@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/bleshik/ctx4node.svg?branch=master)](https://travis-ci.org/bleshik/ctx4node)
 # ctx4node
 This is the easiest way to keep a context throughout all your nested promises and callbacks.
 
