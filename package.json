@@ -63,5 +63,5 @@
     "tsc": "tsc --declaration",
     "uglify": "./node_modules/uglify-es/bin/uglifyjs build/index.js --keep-fnames --ecma 6 -o build/index.js"
   },
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
