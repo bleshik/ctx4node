@@ -1,7 +1,9 @@
+type AnyFun = (...args: any[]) => any;
+
 export interface Context {
     set: (key: string, value: any) => void;
     get: (key: string) => any;
-    bind: (fn: Function) => Function;
+    bind<T extends AnyFun>(fn: T): T;
     run: (fn: Function) => void;
     runWithNew: (fn: Function) => void;
 }
