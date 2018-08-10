@@ -34,10 +34,10 @@ export const context: Context = {
         return getActiveDomain()[key];
     },
     bind<T extends AnyFun>(fn: T): T {
-        return (getActiveDomain() || domain.create()).bind(fn);
+        return (getActiveDomainIfAny() || domain.create()).bind(fn);
     },
     run: (fn: Function) => {
-        return (getActiveDomain() || domain.create()).run(fn);
+        return (getActiveDomainIfAny() || domain.create()).run(fn);
     },
     bindWithNew<T extends AnyFun>(fn: T): T {
         return domain.create().bind(fn);
