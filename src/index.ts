@@ -1,5 +1,5 @@
 import * as domain from 'domain';
-import { Context } from './Context';
+import { AnyFun, Context } from './Context';
 
 function getActiveDomainIfAny() {
     return (domain as any).active;
@@ -33,11 +33,14 @@ export const context: Context = {
     get: (key: string) => {
         return getActiveDomain()[key];
     },
-    bind: (fn: Function) => {
-        return getActiveDomain().bind(fn);
+    bind<T extends AnyFun>(fn: T): T {
+        return (getActiveDomain() || domain.create()).bind(fn);
     },
     run: (fn: Function) => {
-        return getActiveDomain().run(fn);
+        return (getActiveDomain() || domain.create()).run(fn);
+    },
+    bindWithNew<T extends AnyFun>(fn: T): T {
+        return domain.create().bind(fn);
     },
     runWithNew: (fn: Function) => {
         domain.create().run(fn);
