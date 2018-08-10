@@ -40,11 +40,6 @@ export const context: Context = {
         return getActiveDomain().run(fn);
     },
     runWithNew: (fn: Function) => {
-        const d = domain.create();
-        try {
-            return d.run(fn);
-        } finally {
-            d.dispose();
-        }
+        domain.create().run(fn);
     }
 };
