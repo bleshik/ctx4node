@@ -20,3 +20,6 @@ Yup, it is deprecated. However the problem is that there is no built-in replacem
 The good thing is that it is just an implementation detail which you may ignore.
 If someday the Domain part of nodejs is removed, you always can implement the Context interface.
 Also, when it happens, we will provide the updated version as soon as possible.
+
+## Links
+To learn background behind this lib, [see this article](https://medium.com/@AlexeyBalchunas/top-5-headaches-i-had-with-nodejs-as-a-java-developer-81de37672e39).
