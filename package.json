@@ -53,10 +53,9 @@
   "scripts": {
     "build": "npm run clean && tsc --declaration && npm run uglify",
     "clean": "rimraf dist",
-    "deploy": "npm version patch && npm publish",
+    "deploy": "npm version patch && npm run build && npm publish",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "postversion": "git push origin master",
-    "prepublish": "npm run build",
     "pretest": "cross-env NODE_ENV=test npm build && npm run lint",
     "start": "tsc -w",
     "test": "jest",
